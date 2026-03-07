@@ -1,0 +1,13 @@
+{
+  "name": "100-css-challenge",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "devDependencies": {
+    "vite": "^6",
+    "sass-embedded": "^1"
+  }
+}
