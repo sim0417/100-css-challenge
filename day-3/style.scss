@@ -1,0 +1,214 @@
+// delete the following line if no text is used
+// edit the line if you wanna use other fonts
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:700,300);
+
+$cubic-bezier: cubic-bezier(0.4, 0, 0.49, 1);
+
+// use only the available space inside the 400x400 frame
+.frame {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  height: 400px;
+  margin-top: -200px;
+  margin-left: -200px;
+  box-shadow: 4px 8px 16px 0 rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  background: #fff;
+  color: #333;
+  font-family: "Open Sans", Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  border-radius: 6px;
+
+  background: #272c34;
+}
+
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes circle-animation {
+  0% {
+    opacity: 1;
+  }
+  25% {
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  60% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+.circle {
+  width: 200px;
+  height: 200px;
+  background: white;
+  border-radius: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+  animation: circle-animation 6s $cubic-bezier infinite;
+}
+
+.top {
+  position: absolute;
+  top: 0;
+  height: 140px;
+  width: 100%;
+  background: #7ddffc;
+}
+
+.bottom {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  background: #f0de75;
+}
+
+@keyframes sun-animation {
+  0% {
+    transform: rotate(-90deg);
+  }
+  25% {
+    transform: rotate(-10deg);
+    background: #f8ec44;
+  }
+
+  50% {
+    background: #fff676;
+  }
+
+  75% {
+    // transform: rotate(90deg);
+    background: #cec000;
+  }
+
+  100% {
+    transform: rotate(90deg);
+    background: #cec000;
+  }
+}
+
+.sun {
+  position: absolute;
+  top: 9px;
+  left: 80px;
+  width: 40px;
+  height: 40px;
+  background: #cec000;
+  border-radius: 100%;
+  transform-origin: 40% 400%;
+  animation: sun-animation 6s $cubic-bezier infinite;
+}
+
+@keyframes pyramid-left-animation {
+  0% {
+  }
+  25% {
+  }
+
+  50% {
+  }
+
+  75% {
+    border-bottom-color: #dedede;
+  }
+
+  100% {
+    border-bottom-color: #dedede;
+  }
+}
+
+.pyramid-left {
+  position: absolute;
+  bottom: 60px;
+  left: 40px;
+  width: 0;
+  height: 0;
+  border-left: 60px solid transparent;
+  border-right: 25px solid transparent;
+  border-bottom: 50px solid #fff;
+  z-index: 5;
+  animation: pyramid-left-animation 6s $cubic-bezier infinite;
+}
+
+@keyframes pyramid-right-animation {
+  0% {
+    border-bottom-color: #dedede;
+  }
+  25% {
+  }
+
+  50% {
+  }
+
+  75% {
+  }
+
+  100% {
+    border-bottom-color: #fff;
+  }
+}
+
+.pyramid-right {
+  position: absolute;
+  bottom: 60px;
+  right: 40px;
+  width: 0;
+  height: 0;
+  border-left: 30px solid transparent;
+  border-right: 60px solid transparent;
+  border-bottom: 50px solid #fff;
+  z-index: 4;
+  animation: pyramid-right-animation 6s $cubic-bezier infinite;
+}
+
+@keyframes pyramid-shadow-animation {
+  0% {
+    clip-path: polygon(41px 0%, 156px 0%, 400% 100%);
+  }
+  25% {
+    clip-path: polygon(41px 0%, 156px 0%, 49% 35%);
+  }
+
+  50% {
+  }
+
+  75% {
+  }
+
+  100% {
+    clip-path: polygon(41px 0%, 156px 0%, -300% 100%);
+    opacity: 0.1;
+  }
+}
+
+.pyramid-shadow {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  clip-path: polygon(41px 0%, 156px 0%, 400% 100%);
+  opacity: 0.3;
+  z-index: 3;
+  background: #000000;
+  animation: pyramid-shadow-animation 5.9s $cubic-bezier infinite;
+}
