@@ -1,0 +1,43 @@
+.icon {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  background-color: currentColor;
+  vertical-align: -3px;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  -webkit-mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: contain;
+}
+
+.icon-dashboard {
+  -webkit-mask-image: url("/icons/layout-dashboard.svg");
+  mask-image: url("/icons/layout-dashboard.svg");
+}
+
+.icon-user {
+  -webkit-mask-image: url("/icons/user.svg");
+  mask-image: url("/icons/user.svg");
+}
+
+.icon-bell {
+  -webkit-mask-image: url("/icons/bell.svg");
+  mask-image: url("/icons/bell.svg");
+}
+
+.icon-mail {
+  -webkit-mask-image: url("/icons/mail.svg");
+  mask-image: url("/icons/mail.svg");
+}
+
+.icon-settings {
+  -webkit-mask-image: url("/icons/settings.svg");
+  mask-image: url("/icons/settings.svg");
+}
+
+.icon-search {
+  -webkit-mask-image: url("/icons/search.svg");
+  mask-image: url("/icons/search.svg");
+}
