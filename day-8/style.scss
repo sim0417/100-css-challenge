@@ -1,0 +1,225 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:700,300);
+
+.frame {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  height: 400px;
+  margin-top: -200px;
+  margin-left: -200px;
+  box-shadow: 4px 8px 16px 0 rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  background: #000;
+  font-family: "Open Sans", Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  border-radius: 6px;
+
+  filter: contrast(50);
+}
+
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.center-circle {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: #fff;
+}
+
+@keyframes rotate-circle {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.side-circle {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  filter: blur(20px);
+
+  &:after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 40px;
+    height: 40px;
+    background-color: #fff;
+    border-radius: 50%;
+    transform-origin: 30px 34px;
+    animation: rotate-circle 3s linear infinite;
+    filter: blur(5px);
+  }
+
+  &[data-index="1"] {
+    transform: rotate(18deg);
+    &:after {
+      transform-origin: 36px 24px;
+      animation-duration: 2.6s;
+    }
+  }
+  &[data-index="2"] {
+    transform: rotate(51deg);
+    &:after {
+      transform-origin: 22px 34px;
+      animation-duration: 3.4s;
+    }
+  }
+  &[data-index="3"] {
+    transform: rotate(97deg);
+    &:after {
+      transform-origin: 34px 22px;
+      animation-duration: 2.9s;
+    }
+  }
+  &[data-index="4"] {
+    transform: rotate(136deg);
+    &:after {
+      transform-origin: 24px 33px;
+      animation-duration: 3.8s;
+    }
+  }
+  &[data-index="5"] {
+    transform: rotate(173deg);
+    &:after {
+      transform-origin: 38px 26px;
+      animation-duration: 2.4s;
+    }
+  }
+  &[data-index="6"] {
+    transform: rotate(212deg);
+    &:after {
+      transform-origin: 23px 31px;
+      animation-duration: 3.1s;
+    }
+  }
+  &[data-index="7"] {
+    transform: rotate(264deg);
+    &:after {
+      transform-origin: 35px 32px;
+      animation-duration: 2.7s;
+    }
+  }
+  &[data-index="8"] {
+    transform: rotate(318deg);
+    &:after {
+      transform-origin: 27px 23px;
+      animation-duration: 3.6s;
+    }
+  }
+}
+
+.particle {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+
+  &:after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 15px;
+    height: 15px;
+    background-color: #fff;
+    border-radius: 50%;
+    filter: blur(4px);
+    animation: rotate-circle 3s linear infinite;
+  }
+
+  &[data-index="1"] {
+    transform: rotate(11deg);
+    &:after {
+      width: 12px;
+      height: 12px;
+      transform-origin: 42px 58px;
+      animation-duration: 2.2s;
+      animation-delay: -1.2s;
+    }
+  }
+  &[data-index="2"] {
+    transform: rotate(47deg);
+    &:after {
+      width: 17px;
+      height: 17px;
+      transform-origin: 60px 46px;
+      animation-duration: 3.7s;
+      animation-delay: -0.5s;
+    }
+  }
+  &[data-index="3"] {
+    transform: rotate(86deg);
+    &:after {
+      width: 10px;
+      height: 10px;
+      transform-origin: 36px 54px;
+      animation-duration: 2.9s;
+      animation-delay: -2.1s;
+    }
+  }
+  &[data-index="4"] {
+    transform: rotate(139deg);
+    &:after {
+      width: 15px;
+      height: 15px;
+      transform-origin: 64px 39px;
+      animation-duration: 3.3s;
+      animation-delay: -1.7s;
+    }
+  }
+  &[data-index="5"] {
+    transform: rotate(181deg);
+    &:after {
+      width: 11px;
+      height: 11px;
+      transform-origin: 45px 63px;
+      animation-duration: 2.5s;
+      animation-delay: -0.8s;
+    }
+  }
+  &[data-index="6"] {
+    transform: rotate(227deg);
+    &:after {
+      width: 14px;
+      height: 14px;
+      transform-origin: 57px 41px;
+      animation-duration: 4.1s;
+      animation-delay: -2.9s;
+    }
+  }
+  &[data-index="7"] {
+    transform: rotate(279deg);
+    &:after {
+      width: 9px;
+      height: 9px;
+      transform-origin: 39px 49px;
+      animation-duration: 2.7s;
+      animation-delay: -1.4s;
+    }
+  }
+  &[data-index="8"] {
+    transform: rotate(331deg);
+    &:after {
+      width: 16px;
+      height: 16px;
+      transform-origin: 62px 56px;
+      animation-duration: 3.5s;
+      animation-delay: -2.3s;
+    }
+  }
+}
