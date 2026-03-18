@@ -41,3 +41,8 @@
   -webkit-mask-image: url("/icons/search.svg");
   mask-image: url("/icons/search.svg");
 }
+
+.icon-heart {
+  -webkit-mask-image: url("/icons/heart.svg");
+  mask-image: url("/icons/heart.svg");
+}
