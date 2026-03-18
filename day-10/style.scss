@@ -1,0 +1,166 @@
+@use "sass:list";
+@use "sass:math";
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:700,300);
+
+$dot-count: 60;
+$dot-size: 3px;
+$dot-ring-radius: 125px;
+$dot-shadows: ();
+
+// NOTE:
+// i번째 점의 극좌표를 직교좌표로 변환
+// angle = 2π * i / 점개수
+// x = sin(angle) * 반지름, y = -cos(angle) * 반지름
+@for $i from 0 through ($dot-count - 1) {
+  $angle: math.div(2 * math.$pi * $i, $dot-count);
+  $x: math.sin($angle) * $dot-ring-radius;
+  $y: math.cos($angle) * -$dot-ring-radius;
+  $dot-shadows: list.append($dot-shadows, #{$x} #{$y} 0 0 #fff, comma);
+}
+
+.frame {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  height: 400px;
+  margin-top: -200px;
+  margin-left: -200px;
+  box-shadow: 4px 8px 16px 0 rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  background: #4c4c4c;
+  color: #333;
+  font-family: "Open Sans", Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  border-radius: 6px;
+}
+
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  * {
+    box-sizing: border-box;
+  }
+}
+
+.container {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 6px solid #3a3a3a;
+  background-color: #242424;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: $dot-size;
+    height: $dot-size;
+    border-radius: 50%;
+    box-shadow: $dot-shadows;
+  }
+}
+
+@keyframes spinner-animation {
+  0% {
+    stroke-dashoffset: 870;
+    transform: rotate(-90deg) scaleY(1);
+  }
+  50% {
+    stroke-dashoffset: 0;
+    transform: rotate(-90deg) scaleY(1);
+  }
+  // NOTE: 중간지점에서 반전효과를 매우 짧은 순간에 실행하기 위해 0.00001초 차이를 줌
+  50.00001% {
+    transform: rotate(-90deg) scaleY(-1);
+  }
+  100% {
+    stroke-dashoffset: 870;
+    transform: rotate(-90deg) scaleY(-1);
+  }
+}
+
+.spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+
+  circle {
+    fill: none;
+    stroke: #f85b5b;
+    stroke-width: 4;
+    stroke-dasharray: 870;
+    animation: spinner-animation 6s linear infinite;
+    transform-origin: center;
+    transform: rotate(-90deg);
+    r: 47%;
+  }
+}
+
+.text-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: #fff;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.date {
+  font-size: 13px;
+}
+
+.time {
+  font-size: 44px;
+}
+
+.health-container {
+  width: 100%;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.heart-rate {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+@keyframes heart-icon-animation {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.heart-icon {
+  width: 16px;
+  height: 16px;
+  color: #f85b5b;
+  animation: heart-icon-animation 1s ease-in-out infinite;
+}
